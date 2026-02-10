@@ -25,6 +25,11 @@
   ],
   "author": "Ivan Angelkoski",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivan-angjelkoski/auto-versioning-test",
+    "directory": "packages/simple-package"
+  },
   "publishConfig": {
     "access": "public"
   },
