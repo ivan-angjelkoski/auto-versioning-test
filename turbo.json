@@ -13,6 +13,9 @@
     "check-types": {
       "dependsOn": ["^check-types"]
     },
+    "publish-package": {
+      "dependsOn": ["^publish-package"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
