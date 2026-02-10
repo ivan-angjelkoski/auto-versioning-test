@@ -1,0 +1,57 @@
+name: Release Simple Package
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/simple-package/**"
+      - ".github/workflows/release-simple-package.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-simple-package-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Release @ivan-angelkoski/simple-package
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Upgrade npm for trusted publishing
+        run: npm install --global npm@11
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm --filter @ivan-angelkoski/simple-package build
+
+      - name: Release package
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm --filter @ivan-angelkoski/simple-package exec semantic-release

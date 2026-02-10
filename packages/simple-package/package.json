@@ -25,6 +25,9 @@
   ],
   "author": "Ivan Angelkoski",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "tsdown": "^0.20.3"
   }
