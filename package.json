@@ -6,9 +6,11 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "publish": "turbo run publish",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "auto": "^11.3.6",
     "prettier": "^3.7.4",
     "turbo": "^2.8.3",
     "typescript": "5.9.2"
@@ -16,5 +18,7 @@
   "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18"
-  }
+  },
+  "repository": "ivan-angjelkoski/auto-versioning-test",
+  "author": "version_bot <noreeply@github.com>"
 }
