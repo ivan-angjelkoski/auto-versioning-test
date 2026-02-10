@@ -1,0 +1,27 @@
+{
+  "name": "@ivan-angelkoski/simple-package",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "This is a simple package for testing purposes",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Ivan Angelkoski",
+  "license": "ISC",
+  "devDependencies": {
+    "tsdown": "^0.20.3"
+  }
+}
